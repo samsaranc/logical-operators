@@ -1,0 +1,22 @@
+import lejos.nxt.*;
+import lejos.util.*;
+
+public class Rotation {
+
+	public static void main(String[] args) {
+		int rotation = -385;
+		Button.waitForAnyPress();
+		Motor.C.rotate(rotation);
+		Delay.msDelay(3000);
+		Motor.C.rotate(1300,true);
+		Motor.B.rotate(1300,true);
+		Delay.msDelay(5000);
+		Motor.B.rotate(rotation);
+		System.out.println("rotate");
+		Delay.msDelay(3000);
+		Motor.C.rotate(1300,true);
+		Motor.B.rotate(1300,true);
+		Button.waitForAnyPress();
+	}
+
+}
