@@ -1,0 +1,52 @@
+
+import lejos.robotics.*;
+import lejos.util.Delay;
+import lejos.nxt.*;
+
+
+public class Running {
+	
+	public static void ring(){
+		Sound.playTone(300,800);
+		Sound.playTone(300,800);
+		Sound.playTone(300,800);
+		Sound.playTone(300,800);
+		Sound.playTone(300,800);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("Logical Operator");
+		Button.waitForAnyPress();
+		//TouchSensor ts = new TouchSensor(SensorPort.S1);
+		int rotation = -365;
+		
+		SensorPort.S4.addSensorPortListener(new SensorPortListener(){
+			public void stateChanged(SensorPort source, int oldValue, int newValue){
+				if(newValue<900){
+					Motor.B.stop(true);
+					Motor.C.stop(true);
+					Delay.msDelay(600);
+					Sound.playTone(600,2000);
+					Motor.B.rotate(-500,true);
+					Motor.C.rotate(-500,true);
+					Delay.msDelay(3000);
+					Motor.C.rotate(rotation);
+					Delay.msDelay(1000);
+					Motor.B.rotate(1300,true);
+					Motor.C.rotate(1300,true);
+					Delay.msDelay(5000);
+					Motor.B.rotate(rotation);
+					Delay.msDelay(1000);
+					Running.ring();
+				}
+				else{
+					Motor.B.forward();
+					Motor.C.forward();
+				}
+			}
+		});
+		
+		Button.waitForAnyPress();
+	}
+	
+}
