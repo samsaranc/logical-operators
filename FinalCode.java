@@ -1,4 +1,4 @@
- package robotm;
+package robotm;
 import java.util.Stack;
 
 import lejos.nxt.*;
@@ -74,7 +74,7 @@ public class Color {
 	}
 
 	public static void turnRight(){
-		Motor.C.rotate(300 );
+		Motor.C.rotate(300);
 	}
 
 	public static void main(String[] args){
@@ -96,6 +96,31 @@ public class Color {
 				Motor.B.stop();
 				Motor.C.stop();
 				//play tune
+				/*
+				uturn;
+				while(moves.peek()!=null) {
+					if (moves.peek().equals("left")) {
+						moves.pop();
+						turnLeft();
+					}
+					else if(moves.peek().equals("right")) {
+						moves.pop();
+						turnRight();
+					}
+					else {
+						moves.pop();
+						if(isBlack(colorSen)){
+							Motor.B.rotate(20,true);
+							Motor.C.rotate(-3,true);
+						}
+
+						if(!isBlack(colorSen)&&!isBlue(colorSen)&&!isSilver(colorSen)){
+							Motor.C.rotate(20,true);
+							Motor.B.rotate(-3,true);
+						}
+					}
+				}
+				*/
 				break;
 
 			}
